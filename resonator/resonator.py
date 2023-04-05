@@ -43,6 +43,11 @@ class Mirror:
         mirror_length = mirror_up_point + mirror_down_point
         self.mirror_length = abs(mirror_length / 2)
 
+        if np.abs(self.R) > 100:
+            self.is_plane = True
+        else:
+            self.is_plane = False
+
     def get_x(self, y):
         """Returns the x-coordinate of the mirror at a given y-coordinate
 
@@ -56,6 +61,9 @@ class Mirror:
         float
         """
         R = -self.R
+        if self.is_plane:
+            return self.x
+
         if self.x < 0:
             sintheta = (y - self.y) / R
             x = self.x + R * np.cos(np.arcsin(sintheta))
@@ -65,7 +73,7 @@ class Mirror:
             x = self.x - R * np.cos(np.arcsin(sintheta))
             return x + R
 
-    def plot(self, ax, hline=True):
+    def draw(self, ax, hline=True):
         """Plots the mirror along with the mirror ticks
 
         Parameters
@@ -84,7 +92,11 @@ class Mirror:
         thetas = np.linspace(theta1, theta2, 100)
         a, b = self.R, self.R
 
-        if self.x < 0:
+        if self.is_plane:
+            xs = np.ones(len(thetas)) * self.x
+            ys = np.linspace(-0.5, 0.5, 100)
+
+        elif self.x < 0:
             x = self.x + a
             xs = a * np.cos(np.deg2rad(thetas)) + x
             ys = b * np.sin(np.deg2rad(thetas)) + self.y
@@ -108,9 +120,18 @@ class Mirror:
         angles[mask] = -angles[mask]
 
         for i in range(0, len(xs), 4):
-            p1 = [xs[i], xs[i] + 0.1 * np.cos((angles[i]))]
-            p2 = [ys[i], ys[i] + 0.1 * np.sin((angles[i]))]
+            if self.is_plane:
+                if self.x < 0:
+                    l = -0.1
+                else:
+                    l = 0.1
+                p1 = [xs[i], xs[i] + l]
+                p2 = [ys[i], ys[i]]
+            else:
+                p1 = [xs[i], xs[i] + 0.1 * np.cos((angles[i]))]
+                p2 = [ys[i], ys[i] + 0.1 * np.sin((angles[i]))]
             ax.plot(p1, p2, color=self.MIRROR_TICKS_COLOR, linewidth=1)
+        ax.set_title(self.name)
 
 
 class Resonator:
@@ -118,7 +139,8 @@ class Resonator:
 
     LEFT_MIRROR_COLOR = "b"
     RIGHT_MIRROR_COLOR = "g"
-    RAY_COLOR = "r"
+    FORWARD_RAY_COLOR = "r"
+    BACKWARD_RAY_COLOR = "r"
 
     def __init__(self, R1, R2, L, name="") -> None:
         """Instantiates the resonator object
@@ -126,9 +148,9 @@ class Resonator:
         Parameters
         ----------
         R1 : float
-            The radius of the first circle
+            The radius of the left mirror
         R2 : float
-            The radius of the second circle
+            The radius of the right mirror
         L : float
             The length of the resonator
         name : str, optional
@@ -152,14 +174,27 @@ class Resonator:
         mirror_one_x = -self.L / 2
         mirror_two_x = self.L / 2
         self.left_mirror = Mirror(
-            self.R1, mirror_one_x, y_poistion, color=self.LEFT_MIRROR_COLOR
+            self.R1,
+            mirror_one_x,
+            y_poistion,
+            color=self.LEFT_MIRROR_COLOR,
+            name="Left Mirror",
         )
         self.right_mirror = Mirror(
-            self.R2, mirror_two_x, y_poistion, color=self.RIGHT_MIRROR_COLOR
+            self.R2,
+            mirror_two_x,
+            y_poistion,
+            color=self.RIGHT_MIRROR_COLOR,
+            name="Right Mirror",
         )
         self.translation_rtm = np.array([[1, self.L], [0, 1]])
         self.left_reflection_rtm = np.array([[1, 0], [2 / self.R1, 1]])
         self.right_reflection_rtm = np.array([[1, 0], [2 / self.R2, 1]])
+
+        self.left_mirror_is_plane = self.left_mirror.is_plane
+        self.right_mirror_is_plane = self.right_mirror.is_plane
+
+        self.has_plane_mirror = self.left_mirror_is_plane or self.right_mirror_is_plane
 
     @property
     def is_stable(self):
@@ -171,34 +206,26 @@ class Resonator:
         return True
 
     def __metadata(self):
-        """Returns the metadata of the resonator object"""
+        """Returns the metadata of the resonator object to be displayed on the plot"""
         is_stable = self.is_stable
         if is_stable:
             is_stable = "Stable"
         else:
             is_stable = "Unstable"
-        return {
-            "R1": round(self.R1, 2),
-            "R2": round(self.R2, 2),
-            "L": round(self.L, 2),
-            "g1": round(self.g1, 2),
-            "g2": round(self.g2, 2),
-            "stability": is_stable,
-        }
 
-    def _metadata(self):
-        """Returns the metadata of the resonator object as a string"""
-        metadata = self.__metadata()
-        metadata_text = ""
-        i = 0
-        for key, value in metadata.items():
-            if i in [0, 1, 2]:
-                metadata_text += f"{key} : {value:.2f} m\n"
-            elif i in [3, 4]:
-                metadata_text += f"{key} : {value:.2f}\n"
-            else:
-                metadata_text += f"{key} : {value}"
-            i += 1
+        if self.left_mirror_is_plane:
+            metadata_text = f"$R_1 =$ Plane\n"
+        else:
+            metadata_text = f"$R_1 = {self.R1:.2f}$ m\n"
+        if self.right_mirror_is_plane:
+            metadata_text += f"$R_2 =$ Plane\n"
+        else:
+            metadata_text += f"$R_2 = {self.R2:.2f}$ m\n"
+
+        metadata_text += f"$L = {self.L:.2f}$ m\n"
+        metadata_text += f"$g_1 = {self.g1:.2f}$\n"
+        metadata_text += f"$g_2 = {self.g2:.2f}$\n"
+        metadata_text += f"Stability = {is_stable}"
         return metadata_text
 
     def draw(
@@ -223,14 +250,19 @@ class Resonator:
         None
         """
         fig, ax = plt.subplots(1, 1, figsize=(10, 10))
-        self.left_mirror.plot(ax)
-        self.right_mirror.plot(ax)
+        self.left_mirror.draw(ax)
+        self.right_mirror.draw(ax)
 
         offset_x_left = min(self.L / 2 * 0.8, 0.6)
         offset_x_right = min(self.L / 2 * 0.8, 0.6)
         if show_metadata:
             offset_x_right += 0.35
-        R = max(np.abs(self.R1), np.abs(self.R2))
+
+        if self.has_plane_mirror:
+            R = min(np.abs(self.R1), np.abs(self.R2))
+        else:
+            R = max(np.abs(self.R1), np.abs(self.R2))
+
         x_ticks = np.round(
             np.linspace(-self.L / 2 - offset_x_left, self.L / 2 + offset_x_right, 11), 2
         )
@@ -244,7 +276,7 @@ class Resonator:
         ax.set_ylabel("y in m")
 
         if show_metadata:
-            metadata = self._metadata()
+            metadata = self.__metadata()
             ax.text(
                 0.72,
                 0.75,
@@ -359,11 +391,13 @@ class Resonator:
         Parameters
         ----------
         pos0 : np.array
-            The position vector of the ray
+            The initial position vector of the ray
         n : int, optional
             The number of times to propogate, by default 1
         show_metadata : bool, optional
             Whether to show the metadata, by default True
+        show_fig : bool, optional
+            Whether to show the figure, by default True
         return_ys : bool, optional
             Whether to return the y positions of the ray on the mirrors, by default True
         return_fig : bool, optional
@@ -379,7 +413,11 @@ class Resonator:
             The y positions of the ray on the left and right mirrors or the figure and axis or None
         """
         if not self.is_stable:
-            print("Resonator is not stable. Plotted ray may not be accurate.")
+            print("Warning: Resonator is not stable. Setting n to min(n, 10)")
+            n = min(n, 10)
+            ray_line_width = 2
+        else:
+            ray_line_width = 0.5
 
         self.y0 = pos0[0]
         self.x0 = self.get_left_x(self.y0)
@@ -398,16 +436,17 @@ class Resonator:
             self.ax.plot(
                 (Xs_left_calculated[i], Xs_right_calculated[i]),
                 (Ys_left[i], Ys_right[i]),
-                c=self.RAY_COLOR,
-                lw=0.5,
+                c=self.FORWARD_RAY_COLOR,
+                lw=ray_line_width,
             )
             self.ax.plot(
                 (Xs_right_calculated[i], Xs_left_calculated[i + 1]),
                 (Ys_right[i], Ys_left[i + 1]),
-                c=self.RAY_COLOR,
-                lw=0.5,
+                c=self.BACKWARD_RAY_COLOR,
+                lw=ray_line_width,
             )
         if fig_name is not None:
+            plt.tight_layout()
             plt.savefig(fig_name, dpi=300)
         if show_fig:
             plt.show()
