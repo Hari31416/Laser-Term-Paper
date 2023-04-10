@@ -39,6 +39,23 @@
       \verb https://en.wikipedia.org/wiki/Ray_transfer_matrix_analysis
       \endverb
     \endentry
+    \entry{photonics}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{day}{9}
+      \field{journaltitle}{RP Photonics}
+      \field{month}{4}
+      \field{title}{ABCD Matrix}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.rp-photonics.com/abcd_matrix.html
+      \endverb
+      \verb{url}
+      \verb https://www.rp-photonics.com/abcd_matrix.html
+      \endverb
+    \endentry
     \entry{manim}{software}{}
       \name{author}{1}{}{%
         {{hash=0c6c914811edee3ebb09f940013689dd}{%
@@ -51,8 +68,8 @@
       \strng{authorbibnamehash}{0c6c914811edee3ebb09f940013689dd}
       \strng{authornamehash}{0c6c914811edee3ebb09f940013689dd}
       \strng{authorfullhash}{0c6c914811edee3ebb09f940013689dd}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{4}
@@ -66,7 +83,7 @@
       \verb https://www.manim.community/
       \endverb
     \endentry
-    \entry{matplolib}{article}{}
+    \entry{matplotlib}{article}{}
       \name{author}{1}{}{%
         {{hash=a27d092a3c70c59360ac990a48514314}{%
            family={Hunter},
@@ -83,8 +100,8 @@
       \strng{authorbibnamehash}{a27d092a3c70c59360ac990a48514314}
       \strng{authornamehash}{a27d092a3c70c59360ac990a48514314}
       \strng{authorfullhash}{a27d092a3c70c59360ac990a48514314}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Matplotlib is a 2D graphics package used for Python for application development, interactive scripting, and publication-quality image generation across user interfaces and operating systems.}
@@ -248,8 +265,8 @@
       \strng{authorbibnamehash}{754b3dec5e203c19b9a5798bbb902222}
       \strng{authornamehash}{754b3dec5e203c19b9a5798bbb902222}
       \strng{authorfullhash}{bba1ae456b2655ba67cf6cee2d142dfc}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature}
@@ -287,8 +304,8 @@
       \strng{authorbibnamehash}{17a956c0861a906da2c0ae6d531cd07a}
       \strng{authornamehash}{17a956c0861a906da2c0ae6d531cd07a}
       \strng{authorfullhash}{17a956c0861a906da2c0ae6d531cd07a}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{4}

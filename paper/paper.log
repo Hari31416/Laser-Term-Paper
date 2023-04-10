@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.9.23)  8 APR 2023 17:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.9.23)  10 APR 2023 19:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -633,14 +633,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 
-      [1]
-<images/box_c.png, id=84, 1345.025pt x 725.71124pt>
+l.78 T
+      he RTM approach then states that for any optical system with RTM \(\ma... [1]
+<images/box_c.png, id=86, 1345.025pt x 725.71124pt>
 File: images/box_c.png Graphic file (type png)
 <use images/box_c.png>
 Package pdftex.def Info: images/box_c.png  used on input line 100.
 (pdftex.def)             Requested size: 352.31653pt x 190.08679pt.
-<images/sc_y_2.png, id=89, 1927.2pt x 1084.05pt>
+<images/sc_y_2.png, id=91, 1927.2pt x 1084.05pt>
 File: images/sc_y_2.png Graphic file (type png)
 <use images/sc_y_2.png>
 Package pdftex.def Info: images/sc_y_2.png  used on input line 116.
@@ -650,18 +650,18 @@ Package pdftex.def Info: images/sc_y_2.png  used on input line 116.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2 <./images/box_c.png>]
-<images/sc_2.png, id=100, 1927.2pt x 1084.05pt>
+<images/sc_2.png, id=102, 1927.2pt x 1084.05pt>
 File: images/sc_2.png Graphic file (type png)
 <use images/sc_2.png>
 Package pdftex.def Info: images/sc_2.png  used on input line 128.
 (pdftex.def)             Requested size: 328.82733pt x 184.96425pt.
-<images/round_trip.png, id=101, 1927.2pt x 1084.05pt>
+<images/round_trip.png, id=103, 1927.2pt x 1084.05pt>
 File: images/round_trip.png Graphic file (type png)
 <use images/round_trip.png>
 Package pdftex.def Info: images/round_trip.png  used on input line 136.
 (pdftex.def)             Requested size: 422.77698pt x 237.797pt.
  [3 <./images/sc_y_2.png> <./images/sc_2.png>]
-<images/translation.png, id=114, 1594.95876pt x 907.39pt>
+<images/translation.png, id=116, 1594.95876pt x 907.39pt>
 File: images/translation.png Graphic file (type png)
 <use images/translation.png>
 Package pdftex.def Info: images/translation.png  used on input line 154.
@@ -671,13 +671,13 @@ Package pdftex.def Info: images/translation.png  used on input line 154.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4 <./images/round_trip.png>]
-<images/reflection.png, id=130, 1351.0475pt x 916.42375pt>
+<images/reflection.png, id=132, 1351.0475pt x 916.42375pt>
 File: images/reflection.png Graphic file (type png)
 <use images/reflection.png>
 Package pdftex.def Info: images/reflection.png  used on input line 195.
 (pdftex.def)             Requested size: 328.82733pt x 223.03654pt.
  [5 <./images/translation.png> <./images/reflection.png>] [6]
-<images/symmetric.png, id=162, 722.7pt x 722.7pt>
+<images/symmetric.png, id=164, 722.7pt x 722.7pt>
 File: images/symmetric.png Graphic file (type png)
 <use images/symmetric.png>
 Package pdftex.def Info: images/symmetric.png  used on input line 303.
@@ -686,17 +686,17 @@ Package pdftex.def Info: images/symmetric.png  used on input line 303.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/cave_vex.png, id=163, 722.7pt x 722.7pt>
+<images/cave_vex.png, id=165, 722.7pt x 722.7pt>
 File: images/cave_vex.png Graphic file (type png)
 <use images/cave_vex.png>
 Package pdftex.def Info: images/cave_vex.png  used on input line 310.
 (pdftex.def)             Requested size: 281.8561pt x 281.85185pt.
-<images/plane_cave.png, id=164, 722.7pt x 722.7pt>
+<images/plane_cave.png, id=166, 722.7pt x 722.7pt>
 File: images/plane_cave.png Graphic file (type png)
 <use images/plane_cave.png>
 Package pdftex.def Info: images/plane_cave.png  used on input line 317.
 (pdftex.def)             Requested size: 258.36688pt x 258.36328pt.
-<images/unstable.png, id=165, 722.7pt x 722.7pt>
+<images/unstable.png, id=167, 722.7pt x 722.7pt>
 File: images/unstable.png Graphic file (type png)
 <use images/unstable.png>
 Package pdftex.def Info: images/unstable.png  used on input line 324.
@@ -709,24 +709,24 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 ] (./paper.aux)
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 6577612E7E7D2DFFBBEAC17C131F60B0;2422.
+(rerunfilecheck)             Checksum: C5E8FCF2B697471FC74D0C8939F333A4;2427.
 Package logreq Info: Writing requests to 'paper.run.xml'.
 \openout1 = `paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19640 strings out of 480171
- 339991 string characters out of 5894489
- 1051051 words of memory out of 5000000
- 37295 multiletter control sequences out of 15000+600000
+ 19644 strings out of 480171
+ 340136 string characters out of 5894489
+ 1051100 words of memory out of 5000000
+ 37298 multiletter control sequences out of 15000+600000
  492284 words of font info for 78 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 60i,20n,68p,1056b,1511s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,20n,68p,1051b,1511s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (11 pages, 5079411 bytes).
+Output written on paper.pdf (11 pages, 5080104 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 229 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
  168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

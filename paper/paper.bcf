@@ -2345,16 +2345,18 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">wikipedia</bcf:citekey>
-    <bcf:citekey order="2">manim</bcf:citekey>
+    <bcf:citekey order="2">photonics</bcf:citekey>
     <bcf:citekey order="3">manim</bcf:citekey>
-    <bcf:citekey order="4">matplolib</bcf:citekey>
-    <bcf:citekey order="5">numpy</bcf:citekey>
-    <bcf:citekey order="6">git-repo</bcf:citekey>
-    <bcf:citekey order="7">wikipedia</bcf:citekey>
-    <bcf:citekey order="8">manim</bcf:citekey>
-    <bcf:citekey order="9">matplolib</bcf:citekey>
-    <bcf:citekey order="10">numpy</bcf:citekey>
-    <bcf:citekey order="11">git-repo</bcf:citekey>
+    <bcf:citekey order="4">manim</bcf:citekey>
+    <bcf:citekey order="5">matplotlib</bcf:citekey>
+    <bcf:citekey order="6">numpy</bcf:citekey>
+    <bcf:citekey order="7">git-repo</bcf:citekey>
+    <bcf:citekey order="8">wikipedia</bcf:citekey>
+    <bcf:citekey order="9">photonics</bcf:citekey>
+    <bcf:citekey order="10">manim</bcf:citekey>
+    <bcf:citekey order="11">matplotlib</bcf:citekey>
+    <bcf:citekey order="12">numpy</bcf:citekey>
+    <bcf:citekey order="13">git-repo</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
