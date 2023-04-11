@@ -39,7 +39,7 @@
 \newpage
 % INTRODUCTION
 \section*{Introduction}
-Ray tracing with the ray transfer matrix approach is a simple yet powerful tool to study the properties of an optical system. In this approach, rays are traced by use of matrices. In this paper, we will discuss the same in some detail. In the first section, we'll start by giving a brief introduction to the ray transfer matrix approach, the ray transfer matrix (RTM) itself, the assumptions underlying them, and how they are so powerful. In the second section, we'll calculate the RTM of some simple systems and then use it to create the RTM of the spherical mirror resonator (SMR). The third section will give some details about the algorithm which has been developed to trace the rays in an SMR using {\color{cyan}matplotlib} and {\color{cyan}numpy}. The fourth section has the results obtained by the algorithm and we will see that for a large number of rays, the ray diagram has the same appearance as that of a Gaussian beam.
+Ray tracing with the ray transfer matrix approach is a simple yet powerful tool to study the properties of an optical system. In this approach, rays are traced by use of matrices. In this paper, we will discuss the same in some detail. In the first section, we'll start by giving a brief introduction to the ray transfer matrix approach, the ray transfer matrix (RTM) itself, the assumptions underlying them, and how they are so powerful. In the second section, we'll calculate the RTM of some simple systems and then use it to create the RTM of the spherical mirror resonator (SMR). The third section will give some details about the algorithm which has been developed to trace the rays in an SMR using {\color{cyan}Matplotlib} and {\color{cyan}NumPy}. The fourth section has the results obtained by the algorithm and we will see that for a large number of rays, the ray diagram has the same appearance as that of a Gaussian beam.
 
 \section{Ray Transfer Matrix Analysis}
 Ray transfer matrix analysis is a way to perform ray tracing. In this method, each optical element is described as a \(2\times 2\) matrix. The incoming light ray is described by a column vector. The product of the matrix and the vector gives the outgoing ray. The product of the matrices of all the optical elements gives the overall transformation of the incoming ray. This method is used to analyze the propagation of light through optical systems, such as lenses and mirrors. It is also used to analyze the propagation of light through optical fibers.\cite{wikipedia}\cite{photonics}
@@ -277,7 +277,7 @@ These are all the information needed to trace rays in the SMR.
 
 \section{Ray Tracing}
 
-The program to trace the rays in the SMR is written in Python. I've used {\color{cyan}matplotlib}\cite{matplotlib} for the visualization and {\color{cyan}numpy}\cite{numpy} for the matrix operations. The code can be found in the {\color{cyan}Github Repository}\cite{git-repo}.
+The program to trace the rays in the SMR is written in Python. I've used {\color{cyan}Matplotlib}\cite{matplotlib} for the visualization and {\color{cyan}NumPy}\cite{numpy} for the matrix operations. All the codes and other related stuffs can be found in the \href{https://github.com/Hari31416/Laser-Term-Paper}{Github Repository}\cite{git-repo}.
 
 \subsection{The Algorithm for Ray Tracing}
 The algorithm for ray tracing is very straightforward and is as follows:
@@ -285,10 +285,10 @@ The algorithm for ray tracing is very straightforward and is as follows:
     \item Define the radius of curvature (ROC) of both the mirrors \(R_1 \& R_2\) and the distance between the mirrors \(L\).
     \item Use the equations \ref{eq:translation} and \ref{eq:reflection} to find the RTM for propagation \(M_P\), for the reflection from the left mirror \(M_{R_L}\) and for the reflection from the right mirror \(M_{R_R}\).
     \item Choose a starting point for the ray and the angle of incidence, say \(\mathbf{r_0} = [y_0, \theta_0]^T\). The ray will start from the left mirror.
-    \item To determine the y-position of the ray when it reaches the right mirror, multiply \(\mathbf{r_0}\) with \(M_P\) and call it \(\mathbf{r_1}\). The y-coordinate of \(\mathbf{r_0}\) and the y-coordinate of \(\mathbf{r_1}\) can be used to draw a line that will give the path at which the ray travels from the left to right mirror. (Assuming that the x-coordinate of the mirror remains the same, which is indeed the case.)
+    \item To determine the y-position of the ray when it reaches the right mirror, multiply \(\mathbf{r_0}\) with \(M_P\) and call it \(\mathbf{r_1}\). The y-coordinate of \(\mathbf{r_0}\) and the y-coordinate of \(\mathbf{r_1}\) can be used to draw a line that will give the path at which the ray travels from the left to right mirror. (Assuming that the x-coordinate of the mirrors are fixed, which is indeed the case.)
     \item Now, multiply \(\mathbf{r_1}\) with \(M_{R_R}\) (this will result in a change in the angle) and then again with \(M_P\). Call it \(\mathbf{r_2}\). This will give the y-position of the rays when it reaches the left mirror.
     \item Again, a line can be drawn using the y-positions of \(\mathbf{r_1}\) and \(\mathbf{r_2}\). This will depict the ray coming to the left mirror from the right mirror.
-    \item Continue steps 4-6 by using the last position vector as starting point. This traces the rays.
+    \item Continue steps 4-6 by using the previous position vector as starting point. Stop once sufficient number of rays have been traced.
 \end{enumerate}
 
 \subsection{Some Detail About the Program}
@@ -297,7 +297,7 @@ This section gives some more detail about the program. The program is written us
 \section{Results}
 This section shows some ray diagrams of both stable and unstable resonators with ray tracing done by the program described above. We will see that for large number of rays, the ray diagram has the same appearance as that of a Gaussian beam.
 
-Here are ray diagrams for some resonators. The first few diagrams are for stable resonators. Then we give one ray diagram for the unstable resonator. The resonator details and ray tracing details are given in the caption.
+The next two pages have ray diagrams for some resonators. First few diagrams are for stable resonators. Then we give one ray diagram for the unstable resonator. The resonator details and ray tracing details are given in the caption and in the diagram itself.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{images/symmetric.png}
@@ -328,7 +328,7 @@ Here are ray diagrams for some resonators. The first few diagrams are for stable
 \clearpage
 \newpage
 \section{Conclusion}
-In this paper, we discussed how RTM can be used to trace rays in a SMR. We derived the RTM for the SMR and used it with {\color{cyan}matplotlib} and {\color{cyan}numpy} to write a program to trace the rays inside the given resonator. We plotted such a ray diagram for a number of stable resonators and found out that their shape resembles that of a Gaussian beam. We also saw ray diagram of an unstable resonator.
+In this paper, we discussed how RTM can be used to trace rays in a SMR. We derived the RTM for the SMR and used it with {\color{cyan}Matplotlib} and {\color{cyan}NumPy} to write a program to trace the rays inside the given resonator. We plotted such ray diagrams for a number of stable resonators and found out that their shape resembles that of a Gaussian beam. We also saw ray diagram of an unstable resonator.
 \printbibliography
 % \end{changemargin}
 \end{document}
