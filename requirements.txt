@@ -1,0 +1,9 @@
+# Requirements for the project
+
+# Main requirements
+python >= 3.7
+numpy
+matplotlib
+
+# optional requirements (if you want to create images using manim)
+# manim == 0.17.3
